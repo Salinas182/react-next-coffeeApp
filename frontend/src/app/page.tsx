@@ -1,10 +1,11 @@
 import Link from "next/link";
-import CoffeeCard from "@/components/CoffeeCard";
 import createCoffeeTable from "./db/createCoffeeTable";
 import getAllCoffees from "./db/getAllCoffees";
 import seedCoffeeTable from "./db/seedCoffeeTable";
 import NavBar from "@/components/NavBar";
 import Button from "@/components/Button";
+import Footer from "@/components/Footer";
+import CoffeesList from "@/components/CoffeesList";
 
 export default async function Home() {
   let coffees = [];
@@ -22,15 +23,15 @@ export default async function Home() {
   }
 
   return (
-    <main className="bg-cover bg-center bg-no-repeat h-screen bg-[url('/images/backgroundImg.jpg')] bg-black/60 bg-blend-overlay text-white py-6 px-[25px] lg:px-64 lg:bg-[url('/images/backgroundImgDesktop.jpg')]">
+    <main className="bg-cover bg-center bg-no-repeat h-screen bg-[url('/images/backgroundImg.jpg')] bg-black/60 bg-blend-overlay text-white py-6 px-[25px] lg:px-64 lg:bg-[url('/images/desktop/backgroundImgDesktop.jpg')]">
       <NavBar />
 
-      <div className="flex justify-center text-center flex-col mt-12 mb-16 p-8 gap-y-8 lg:w-1/2 lg:p-0 lg:text-start">
-        <h1 className="font-bold tracking-tighter text-[64px] lg:text-[130px]">
+      <div className="flex justify-center text-center flex-col mt-24 mb-56 p-8 gap-y-10 lg:w-1/2 lg:p-0 lg:text-start lg:mt-56 lg:mb-96">
+        <h1 className="font-bold tracking-tighter text-[48px] lg:text-[82px]">
           ROASTED COFFEE
         </h1>
 
-        <p className="font-normal tracking-wide text-[20px]">
+        <p className="font-normal tracking-wide text-[20px] text-[#938E8E]">
           Choose a coffee from below or create your own.
         </p>
 
@@ -42,11 +43,10 @@ export default async function Home() {
           />
         </Link>
       </div>
-      <div className="gap-[25px] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:max-w-7xl lg:mx-auto">
-        {coffees.map((coffee) => (
-          <CoffeeCard key={coffee.id} coffee={coffee} />
-        ))}
-      </div>
+
+      <CoffeesList coffees={coffees} />
+
+      <Footer />
     </main>
   );
 }

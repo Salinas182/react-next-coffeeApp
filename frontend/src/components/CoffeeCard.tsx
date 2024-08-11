@@ -12,14 +12,20 @@ export default function CoffeeCard({ coffee }: { coffee: Coffee }) {
       <div className="h-1/2 p-[25px]">
         <div
           className={`h-9 w-[77px] ${
-            type === COFFEE_TYPES.arabic ? "bg-[#77A9B0]" : "bg-[#3A383D]"
+            type === COFFEE_TYPES.ARABIC ? "bg-[#77A9B0]" : "bg-[#3A383D]"
           } rounded-[41px] flex items-center justify-center`}
         >
           <span className="text-base font-normal">{type}</span>
         </div>
 
         <div className="relative h-[216px] w-full">
-          <Image src={image_url} alt="Coffee image" fill priority />
+          <Image
+            src={image_url}
+            alt="Coffee image"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
       </div>
 
