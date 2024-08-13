@@ -16,6 +16,7 @@ interface Props {
   onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
+  onBlur?: () => void;
 }
 
 export default function Input({
@@ -27,6 +28,7 @@ export default function Input({
   styles = defaultStyles,
   disabled = false,
   onChange,
+  onBlur,
 }: Props) {
   return (
     <div className={styles.container}>
@@ -40,6 +42,7 @@ export default function Input({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
         className={styles.input}
         disabled={disabled}
       />

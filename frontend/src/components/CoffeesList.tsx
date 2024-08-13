@@ -1,15 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { Coffee } from "@/types/Coffee";
 import CoffeeCard from "./CoffeeCard";
 import { COFFEE_TYPES } from "@/utils/constants";
+import useCoffees from "@/hooks/useCoffees";
+import Alert from "./Alert";
 
 const SHOW_ALL = "All";
 
 export default function CoffeesList({ coffees }: { coffees: Coffee[] }) {
   const [filter, setFilter] = useState<string>(SHOW_ALL);
   const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>(coffees);
+  const { updateCoffees, savingError } = useCoffees();
+
+  useEffect(() => {
+    if (!savingError) {
+      return;
+    }
+
+    toast.custom((t) => (
+      <Alert t={t} message="A coffee with the same name already exists." />
+    ));
+
+  }, [savingError]);
+
+  useEffect(() => {
+    updateCoffees(coffees);
+  }, [coffees, updateCoffees]);
 
   useEffect(() => {
     setFilteredCoffees(
@@ -21,6 +40,11 @@ export default function CoffeesList({ coffees }: { coffees: Coffee[] }) {
 
   return (
     <div className="w-full">
+      <Toaster
+        toastOptions={{ duration: 7000 }}
+        containerStyle={{ position: "absolute" }}
+      />
+
       <h2 className="text-2xl tracking-tighter text-center font-bold lg:text-4xl">
         MVST. EXCLUSIVE COFFEE
       </h2>

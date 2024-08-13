@@ -14,7 +14,7 @@ export default async function insertCoffee(
     );
 
     if (existingCoffee.rows.length > 0) {
-      throw new Error("A coffee with this name already exists");
+      throw new Error("A coffee with the same name already exists.");
     }
     
     const result = await pool.query(
@@ -24,6 +24,6 @@ export default async function insertCoffee(
     return result.rows[0];
   } catch (error) {
     console.error("Error inserting coffee:", error);
-    throw new Error("Failed to insert coffee");
+    throw new Error(`${error}`);
   }
 }
