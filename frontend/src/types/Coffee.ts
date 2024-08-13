@@ -1,8 +1,8 @@
 export type Coffee = {
-  id: number;
+  id?: number;
   name: string;
   type: string;
-  price: number;
+  price: string;
   description: string;
   image_url: string;
 };

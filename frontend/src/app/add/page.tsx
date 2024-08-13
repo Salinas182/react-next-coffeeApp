@@ -31,7 +31,7 @@ export default function CoffeeForm() {
   });
   const [formCompleted, setFormCompleted] = useState(false);
   const { validateForm } = useFormValidation(formData);
-  const { setSavingError } = useCoffees();
+  const { setSavingError, updateCoffees, savedCoffees } = useCoffees();
   const router = useRouter();
 
   useEffect(() => {
@@ -71,7 +71,8 @@ export default function CoffeeForm() {
     try {
       await httpAdapter.post("/api/coffee", formData);
       setSavingError(false);
-      router.push('/')
+      updateCoffees((prevCoffees) => [...prevCoffees, formData]);
+      router.push("/");
     } catch (error) {
       if (isAxiosError(error)) {
         console.error(`Error: ${error.message}`);
@@ -79,7 +80,7 @@ export default function CoffeeForm() {
         console.error("An unknown error occurred");
       }
       setSavingError(true);
-      router.push('/');
+      router.push("/");
     }
   };
 
@@ -195,6 +196,6 @@ const styles = {
     label: "text-sm font-medium text-[#9B9B9B]",
     input: "bg-[#2D2D2D] border border-gray-input rounded-lg h-10 pl-2 text-sm",
   },
-
+  
   buttons: "h-[45px] w-full lg:w-[115px]",
 };

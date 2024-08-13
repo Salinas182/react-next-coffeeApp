@@ -1,4 +1,4 @@
 export const COFFEE_TYPES = {
-  ARABIC: 'Arabic',
-  ROBUSTA: 'Robusta',
-}
+  ARABIC: "Arabic",
+  ROBUSTA: "Robusta",
+};

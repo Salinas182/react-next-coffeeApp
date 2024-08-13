@@ -20,7 +20,12 @@ export function CoffeesProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <CoffeesContext.Provider
-      value={{ savedCoffees: allCoffees, updateCoffees: setAllCoffees, savingError, setSavingError }}
+      value={{
+        savedCoffees: allCoffees,
+        updateCoffees: setAllCoffees,
+        savingError,
+        setSavingError,
+      }}
     >
       {children}
     </CoffeesContext.Provider>

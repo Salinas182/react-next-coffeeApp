@@ -13,7 +13,7 @@ const SHOW_ALL = "All";
 export default function CoffeesList({ coffees }: { coffees: Coffee[] }) {
   const [filter, setFilter] = useState<string>(SHOW_ALL);
   const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>(coffees);
-  const { updateCoffees, savingError } = useCoffees();
+  const { updateCoffees, savingError, savedCoffees } = useCoffees();
 
   useEffect(() => {
     if (!savingError) {
@@ -23,20 +23,22 @@ export default function CoffeesList({ coffees }: { coffees: Coffee[] }) {
     toast.custom((t) => (
       <Alert t={t} message="A coffee with the same name already exists." />
     ));
-
   }, [savingError]);
 
   useEffect(() => {
+    if (savedCoffees.length) {
+      return;
+    }
     updateCoffees(coffees);
-  }, [coffees, updateCoffees]);
+  }, [coffees, updateCoffees, savedCoffees]);
 
   useEffect(() => {
     setFilteredCoffees(
       filter === SHOW_ALL
-        ? coffees
-        : coffees.filter((coffee) => coffee.type === filter)
+        ? savedCoffees
+        : savedCoffees.filter((coffee) => coffee.type === filter)
     );
-  }, [filter, coffees]);
+  }, [filter, savedCoffees]);
 
   return (
     <div className="w-full">

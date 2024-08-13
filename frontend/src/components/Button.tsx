@@ -20,7 +20,7 @@ export default function Button({
     <button
       className={`rounded-[34px] text-white ${
         styles ?? "w-[115px] h-[45px] left-[236px]"
-        } ${buttonStyles[type]} ${disabled && buttonStyles.disabled}`}
+      } ${buttonStyles[type]} ${disabled && buttonStyles.disabled}`}
       onClick={onClick}
       disabled={disabled}
     >

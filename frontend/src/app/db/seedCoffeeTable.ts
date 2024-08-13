@@ -13,7 +13,7 @@ export default async function seedCoffeeTable() {
         name: "Dark Roast",
         description: "Free in the MVST office",
         type: "Arabic",
-        price: 19.00,
+        price: "19.00",
         image_url:
           "https://static.vecteezy.com/system/resources/previews/021/049/268/non_2x/3d-realistic-coffee-cup-coffee-cup-cartoon-free-png.png",
       },
@@ -21,7 +21,7 @@ export default async function seedCoffeeTable() {
         name: "Americano",
         description: "Free in the MVST office",
         type: "Robusta",
-        price: 20.00,
+        price: "20.00",
         image_url:
           "https://static.vecteezy.com/system/resources/previews/021/049/268/non_2x/3d-realistic-coffee-cup-coffee-cup-cartoon-free-png.png",
       },
@@ -29,7 +29,7 @@ export default async function seedCoffeeTable() {
         name: "Cappucino",
         description: "Free in the MVST office",
         type: "Arabic",
-        price: 15.00,
+        price: "15.00",
         image_url:
           "https://static.vecteezy.com/system/resources/previews/021/049/268/non_2x/3d-realistic-coffee-cup-coffee-cup-cartoon-free-png.png",
       },
@@ -37,7 +37,7 @@ export default async function seedCoffeeTable() {
         name: "Decaf Americano",
         description: "Free in the MVST office",
         type: "Robusta",
-        price: 20.00,
+        price: "20.00",
         image_url:
           "https://static.vecteezy.com/system/resources/previews/021/049/268/non_2x/3d-realistic-coffee-cup-coffee-cup-cartoon-free-png.png",
       },
@@ -45,7 +45,7 @@ export default async function seedCoffeeTable() {
         name: "Pine Roast",
         description: "Free in the MVST office",
         type: "Arabic",
-        price: 19.00,
+        price: "19.00",
         image_url:
           "https://static.vecteezy.com/system/resources/previews/021/049/268/non_2x/3d-realistic-coffee-cup-coffee-cup-cartoon-free-png.png",
       },
@@ -53,7 +53,7 @@ export default async function seedCoffeeTable() {
         name: "Raphael Original",
         description: "Free in the MVST office",
         type: "Arabic",
-        price: 15.00,
+        price: "15.00",
         image_url:
           "https://static.vecteezy.com/system/resources/previews/021/049/268/non_2x/3d-realistic-coffee-cup-coffee-cup-cartoon-free-png.png",
       },
