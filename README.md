@@ -1,103 +1,68 @@
-# MVST Challenge
-
-We're thrilled that you've made it to our MVST coding challenge! We are rooting for your success and hope to meet you in the challenge review! 🚀 If you have anything that we can help you with, just open an issue in the Github repo that was provided to you. 
+# react-ts-next-coffeeApp
 
 ## How to get started
 
-To get started with the challenge, first read this README carefully. Then you can go on and
-read the READMEs inside the frontend and backend folders.
+Even though this app runs through NextJs in the fronted folder and nothing is done in the backend besides running the DB, in order to have it running, the following script must be run from both 'backend' and 'frontend' directories:
 
-[Backend README](backend/README.md)
+```bash
+$ yarn install
+```
 
-[Frontend README](frontend/README.md)
+Installs all the necessary dependencies for the app to run correctly.
 
-## Introduction
+### Backend necessary scripts
 
-This code challenge is a project that already contains a very basic backend and frontend structure.
+More detailed information can be found in the backend folder's README. However, assuming you have Docker installed in your machine, you will just need to run:
 
-The backend and frontend are not connected at the beginning of the challenge.
+```bash
+$ yarn start:dev:db
+```
 
-Your task will be to implement some requirements using this repository, but you ultimately own the code. Don't feel like you need to stick to the structure provided, so feel free to refactor, readjust and improve it. Also, update this README if you want to describe your tech stack, give us instructions on how to run it, etc.
+This will run a script that will get the DB up and running for you.
 
-## Task Description
+### Frontend necessary scripts
 
----
+```bash
+$ yarn dev
+```
 
-### Task 1 - Check the design
+Runs the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Our designers have provided us a Figma file:
-https://www.figma.com/file/C4n0EqxCqKuu6Or4okx7qO/Coding-Challenge-2.0
+## Other frontend available scripts
 
-They expect us to build a fullstack web app that accurately follows their UI/UX requirements.
+```bash
+$ yarn test
+```
 
-### Task 2 - Coffee list :coffee:
+Runs all the existing tests.
 
-After running the frontend. You will see a list of items at "localhost:3000". This list is currently static on the frontend. The first task is to setup a database and connect the backend and the frontend to properly render the list with the data coming from the backend.
+```bash
+$ yarn lint
+```
 
-### Task 3 - Adding a :coffee:
+Runs ESLint on the project.
 
-Following the design, create a new page and place a form to add a new coffee.
-You should be able to add a new coffee using the same structure/type (id, name, description, type, price and image url).
-Don't worry about uploading the image, get a URL from Google, an image repository, or serve it as a static asset. You can prefill the image url input and set it to readonly if you like. However, the field needs to be submitted to the backend.
+### Production mode
 
-**⚠️ IMPORTANT ⚠️**
+```bash
+$ yarn install
+```
 
-Before adding a new Coffee, you should validate if an existing record with the same `name` already exists.
+Installs all the necessary dependencies for the app to run correctly.
 
-### Finishing the task
+```bash
+$ yarn build
+```
 
-1. Create a Pull Request with the coding challenge.
-2. Tell MVST HR Team that you are done with it
-3. That is it :)
+Compiles and prepares your project for production deployment, optimizing code and resources.
 
-### ⚠️ Rules
+```bash
+$ yarn start
+```
 
-1. The codebase provided is there to reduce some decision fatigue so you can focus on the coding. Please keep in mind that the decisions of folder structure, backend layers, architecture and other decisions have to be your own (‼️).
-2. Feel free to add any additional JS libraries and tell us in the README file why you chose them.
-3. The frontend has to be built with React. Next.js is there to help you have a quick start and focus on the coding. You can replace it with React Vite or similar if you feel like it would be faster.
-4. The data MUST be persisted in a database.
-5. We love NestJS so we provided some basic backend boilerplate, but it is your choice to use it. You are free to use Next.js as a fullstack framework.
-6. Provide a seeding mechanism to populate your DB.
-7. Match the design in the Figma file.
-8. If you don't feel comfortable using the `app` folder introduced in Next.js 13, you are allowed to use the `page` folder.
-
-### 🔍 What we will check 
-
-To be transparent, these are some things we consider important in the challenge:
-
-1. The final outcome. The challenge is completed if the list of items is rendered on the frontend while fetching data from a backend server and we can add items to the list through the form.
-2. General skills of programming. Besides checking the outcome of your running project, we will check your code for the following: readability, organization, robustness, layering, reusability, and extensibility.
-3. Application of best practices and design patterns.
-4. The outcome in comparison with the design.
-
-### Extra Points
-
-So you are finished and feel like showing us some more? Here are a few things that we'd love to see:
-
-1. Testing. Your choice of what to test and how.
-2. Add some CSS animations or use Framer Motion
-3. If you haven't already, make the frontend SEO friendly
-4. Deploy your application
-
-## FAQ
-
----
-
-- I am not familiar with Next.js and NestJS
-
-  We don't expect you to know all the internals of these frameworks. What we do care about is the quality and the outcome of what you created. For the frontend, focus more on developing a good React application rather than the bells and whistles of Next.js. For the backend part, focus more on qualitative aspects like clean code and architecture and not NestJS specifics. The same applies if you choose to use Next.js as a fullstack framework.
-
-- I don't want to use tailwind
-
-  Feel free to use pure CSS (we love it), styled-components, CSS preprocessors like SASS or any other library that you are comfortable with. Just don't cheat and use a full-on component library like MaterialUI or Bootstrap 😉 We need to know your CSS skills!
-
-- The starter code won't start
-
-  Check that you are using the correct node versions. We have provided an `.nvmrc` file so you can set it to Node 18 if you are using `nvm`. Also, make sure that you have docker installed if you want to use the DB starter script provided by us.
-  
-- Some project dependencies are out of date. Can I update them?
-
-  Absolutely! Also ping us and let us know about this.
+Runs the app in production mode. You must previously build your app.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Feedback
 
@@ -105,14 +70,32 @@ So you are finished and feel like showing us some more? Here are a few things th
 
 ### What would you improve if given more time?
 
-Please fill
+If this project was going to grow in time, some improvements could be made, for instance: 
+- Give the user the chance to register and login.
+- I would show the already existing coffee error when the user is still trying to add a new coffee, giving them the chance to change the name and try again. The way it is currently done, it could be frustrating for them, as the app just gets them back to the main page and they would have to start the process all over again if they want to add a coffee.
+- I would also add a design specifically meant for tablets, as the Figma designs only focus on mobile and desktop screens.
+- If it was working with an external API to retrieve coffees' info instead of just creating our own data, it might be a good idea to make use of the Mapper Pattern to map their data and create our own interface. In this way, if any of their data properties were renamed, only our own interface would need to be modified, instead of every single API call.
+- If working with an API, adding a spinner would be necessary in order to show the user what is going on when the page is loading. Since all the data was local in this case, this is not needed for now.
+- Create more and better tests.
+- Add i18n to support different languages.
 
 ### How was your experience doing this challenge?
 
-Please fill
+I enjoyed it even though, being honest, I found some parts more challenging than I was expecting, so I have tried my best. 
+
+For instance, setting the project up was bit hard for me at first, as I am used to working with API's or local NOSQL DB's -such as Mongo- that I can actually see. Therefore, I had to dedicate some time to investigate how to connect the NextJS app to the Postgres DB and how to create the queries I needed, as I do not know SQL and I am only kind of used to reading SQL queries but never had to write my own ones.
+
+Another kind of problem for me was Figma, this has been the second time I have used Figma in my life, so I am still trying to get to know it. For this reason, I am aware that the design is not 100% accurate, as there was some times when, maybe because I still do not master Figma, the sizes and measures I saw in the design did not look exactly the same in my app, so I ended up trying for my app to look like the design as much as possible, even if the font or elements sizes -like X pixels and so on- were not the same. That being said, I am confident that if I had to keep using Figma, I would have no problem at all and would learn everything about it in order to develop an app that would like exactly like the designs.
+
+### Technical decisions taken and reasons
+
+- I decided to make use of the Adapter Pattern to encapsulate the API calls. In this way, if I wanted to use an alternative to Axios for HTTP calls, that would not be a challenge or break the app, only the adapter would need to be modified. 
+- I have used the Context API in order to have access, throughout the app, to the saved coffees and the error in case a user tried to add an already existing coffee.
+- Taking into account that, every time the app is launched, data from the DB will always be needed, I decided to use Server Side Rendering in that case, to avoid unnecessary calls to the DB if the user gets back to the main page.
+- I have tried to create as many components as it made sense in order to make the app scalable and make the views have as less logic inside as possible.
+- I have added to the Tailwind config the color codes that were going to be needed more than once, in order to avoid repetition and make it easier to change in case the color was to be modified.
+- As I was running out of time, I decided to create only some sample tests for the most critical files, such as the HTTP Adapter, the custom hooks or some components.
+- I have the following packages: Axios -for HTTP calls-, PG -in order to connect to the DB and use just the NextJs app as full-stack, HeadlessUI for the coffee type choice and React Hot Toast for the alert displayed when a coffee already exists. I have chosen both HeadlessUI and React Hot Toast as they were not the kind of components you can find in MaterialUI for instance, since these were components made with TailwindCSS, giving me the chance to totally customize them -by taking a look at the original components, it can be appreciated that they have almost nothing to do with the ones I implemented-.
 
 ---
 
-Thanks and have a great challenge! 🔥
-
-MVST Team
